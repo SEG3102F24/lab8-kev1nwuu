@@ -1,1 +1,34 @@
+# Define the Query type with an employees query
+type Query {
+    # Retrieve all employees
+    employees: [Employee]
+}
 
+
+# Define the Employee type with the fields used in the client app
+type Employee {
+    id: ID!
+    name: String!
+    dateOfBirth: String!
+    city: String!
+    salary: Float!
+    gender: String
+    email: String
+}
+
+
+# Define input type for creating a new employee
+input CreateEmployeeInput {
+    name: String!
+    dateOfBirth: String!
+    city: String!
+    salary: Float!
+    gender: String
+    email: String
+}
+
+# Define the Mutation type with addEmployee mutation
+type Mutation {
+    # Add a new employee
+    addEmployee(createEmployeeInput: CreateEmployeeInput!): Employee
+}
